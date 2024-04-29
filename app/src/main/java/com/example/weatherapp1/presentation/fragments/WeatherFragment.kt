@@ -31,7 +31,6 @@ class WeatherFragment : BaseFragment<
     }
     private lateinit var pLauncher: ActivityResultLauncher<String>
     private lateinit var fLocationClient: FusedLocationProviderClient
-    private var city: String = "Bishkek"
 
     override fun checkPermission() {
         super.checkPermission()
@@ -64,14 +63,12 @@ class WeatherFragment : BaseFragment<
         fLocationClient
             .getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, ct.token)
             .addOnCompleteListener() {
-                city = "${it.result.latitude},${it.result.longitude}"
+                observe("${it.result.latitude},${it.result.longitude}")
             }
     }
 
-    override fun observe() {
-        super.observe()
+    private fun observe(city: String) {
         viewModel.getWeatherForecast(city).resHandler({}, { weather ->
-            Log.e("ololo", "${weather}")
             binding.apply {
                 tvCityFull.text = weather.location.name
                 val initial = convertToInitials(weather.location.name)
@@ -93,9 +90,9 @@ class WeatherFragment : BaseFragment<
     }
 
    private fun convertToInitials(word: String): String{
-        val firstLetter = word.substring(0, 1).toUpperCase()
-        val thirdLetter = word.substring(2, 3).toUpperCase()
-        val sixthLetter = word.substring(5, 6).toUpperCase()
+        val firstLetter = word.substring(0, 1).uppercase()
+        val thirdLetter = word.substring(2, 3).uppercase()
+        val sixthLetter = word.substring(5, 6).uppercase()
 
         return "$firstLetter$thirdLetter$sixthLetter"
     }

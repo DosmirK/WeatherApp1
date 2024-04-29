@@ -1,7 +1,6 @@
 package com.example.weatherapp1.presentation.fragments.base
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +41,6 @@ abstract class BaseFragment<
         initialize()
         checkPermission()
         getLocation()
-        observe()
     }
 
     protected fun <T> LiveData<Resource<T>>.resHandler(
@@ -63,10 +61,8 @@ abstract class BaseFragment<
                 is Resource.Success -> resource.data?.let { success.invoke(it) }
 
             }
-            Log.e("ololo", "${resource.massage}")
         }
     }
-    open fun observe() {}
     open fun initialize() {}
     open fun checkPermission() {}
     open fun getLocation() {}

@@ -1,6 +1,5 @@
 package com.example.weatherapp1.presentation.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -39,7 +38,6 @@ class WeatherAdapter :
     inner class WeatherStepViewHolder(private val binding: ItemWeatherBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(weather: Hour) {
-            Log.e("ololo", "${weather}")
             binding.apply {
                 tvTime.text = weather.time.substring(11, 15)
                 val rain = weather.chance_of_rain.toString() + "%"

@@ -10,5 +10,4 @@ class WeatherViewModel @Inject constructor(
     private val repository: WeatherRepository
 ): ViewModel() {
     fun getWeatherForecast(city: String) = repository.fetchWeatherForecast(city)
-    fun getWeather(city: String) = repository.fetchWeather(city)
 }

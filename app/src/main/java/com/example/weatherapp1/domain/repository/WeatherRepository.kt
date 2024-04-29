@@ -8,5 +8,4 @@ class WeatherRepository @Inject constructor(
     private val api: WeatherService
 ): BaseRepository() {
     fun fetchWeatherForecast(location: String) = doRequest { api.getWeatherForecast(location, 1) }
-    fun fetchWeather(location: String) = doRequest { api.getWeather(location) }
 }
