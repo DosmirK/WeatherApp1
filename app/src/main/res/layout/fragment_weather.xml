@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/sunny"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.WeatherFragment">
+    tools:context=".presentation.fragments.WeatherFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -30,14 +30,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Today" />
+            android:text= "@string/today" />
 
         <TextView
+            android:id="@+id/tv_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-30dp"
             android:layout_marginEnd="-30dp"
-            android:textSize="200sp"
+            android:textSize="140sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_day"
@@ -60,13 +60,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-40dp"
             android:fontFamily="sans-serif-thin"
-            android:textSize="178sp"
+            android:textSize="160sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_icon_location"
             tools:text="JKT" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_weather"
             tools:listitem="@layout/item_weather"
             android:layout_width="match_parent"
             android:orientation="horizontal"

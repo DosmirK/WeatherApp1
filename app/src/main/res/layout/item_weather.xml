@@ -8,6 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
+        android:id="@+id/tv_time"
         tools:text="9 AM"
         android:layout_gravity="center_horizontal"
         android:textSize="12sp"
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"/>
 
     <ImageView
+        android:id="@+id/iv_image"
         android:layout_gravity="center_horizontal"
         android:layout_marginVertical="8dp"
         android:src="@mipmap/ic_day_cloudy"
@@ -23,6 +25,7 @@
         android:importantForAccessibility="no" />
 
     <TextView
+        android:id="@+id/tv_humidity"
         android:layout_gravity="center_horizontal"
         android:drawablePadding="4dp"
         tools:text="6 %"
